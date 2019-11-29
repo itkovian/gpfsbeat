@@ -5,10 +5,22 @@ package config
 
 import "time"
 
+// Config items
 type Config struct {
-	Period time.Duration `config:"period"`
+	Period             time.Duration `config:"period"`
+	Devices            []string      `config:"devices"`
+	MMRepQuotaCommand  string        `config:"mmrepquota"`
+	MMLsFsCommand      string        `config:"mmlsfs"`
+	MMDfCommand        string        `config:"mmdf"`
+	MMLsFilesetCommand string        `config:"mmlsfileset"`
 }
 
+// DefaultConfig should be overridden
 var DefaultConfig = Config{
-	Period: 1 * time.Second,
+	Period:             1 * time.Second,
+	Devices:            []string{"all"},
+	MMRepQuotaCommand:  "mmrepquota",
+	MMLsFsCommand:      "mmlsfs",
+	MMDfCommand:        "mmdf",
+	MMLsFilesetCommand: "mmlsfileset",
 }
